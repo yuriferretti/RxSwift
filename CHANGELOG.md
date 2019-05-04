@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 
 ---
+## Unreleased
+
+* Add `Driver.drive()` and `Signal.emit()` for multiple observers/relays. #1962
+
 ## [5.0.1](https://github.com/ReactiveX/RxSwift/releases/tag/5.0.1)
 
 * Reverts Carthage integration from using static to dynamic libraries. #1960
