@@ -20,7 +20,6 @@ import RxSwift
     To find out more about units and how to use them, please visit `Documentation/Traits.md`.
 */
 
-@dynamicMemberLookup
 public struct SharedSequence<SharingStrategy: SharingStrategyProtocol, Element> : SharedSequenceConvertibleType {
     let _source: Observable<Element>
 
@@ -56,10 +55,6 @@ public struct SharedSequence<SharingStrategy: SharingStrategyProtocol, Element> 
     */
     public func asSharedSequence() -> SharedSequence<SharingStrategy, Element> {
         return self
-    }
-    
-    public subscript<U>(dynamicMember keyPath: KeyPath<Element, U>) -> SharedSequence<SharingStrategy, U> {
-        return self.map { $0[keyPath: keyPath] }
     }
 }
 
@@ -229,4 +224,3 @@ extension SharedSequence where Element: RxAbstractInteger {
         return SharedSequence(Observable.timer(dueTime, period: period, scheduler: SharingStrategy.scheduler))
     }
 }
-
